@@ -38,5 +38,19 @@ module RestApiClient
 
      JSON.parse(resData)
     end
+
+    def get_widget(id)
+      resData = RestClient::Request.execute(method: :get, url: "#{BASE_URL}/api/v1/widgets/#{id}",
+        headers: {'content-type': 'application/json', Authorization: "Bearer #{session[:token]}"} )  {|response, request, result| response }
+  
+       JSON.parse(resData)
+    end
+
+    def update_widget(id, payload)
+      resData = RestClient::Request.execute(method: :put, url: "#{BASE_URL}/api/v1/widgets/#{id}", payload:{ 'widget': payload },
+        headers: {'content-type': 'application/json', Authorization: "Bearer #{session[:token]}"} )  {|response, request, result| response }
+
+      JSON.parse(resData)
+    end
   end
 end

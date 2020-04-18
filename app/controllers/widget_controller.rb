@@ -29,6 +29,25 @@ class WidgetController < ApplicationController
     end
   end
 
+  def edit
+    @widget = get_widget(params[:id])['data']
+  end
+
+  def update
+    @widget = Validations::UpdateWidget.new(update_widget_payload)
+    if !@widget.valid?
+      json_response(@widget.errors, :bad_request)
+    else
+      response = update_widget(params[:id], update_widget_payload)
+      if response['message'] != 'Success'
+        json_response(response)
+      else
+        redirect_to root_path
+      end
+    end
+  end
+
+
   private
 
   def widget_payload
@@ -37,5 +56,12 @@ class WidgetController < ApplicationController
       description: params[:description],
       kind: params[:kind] == '1' ? 'hidden' : 'visible'
     }
- end
+  end
+
+  def update_widget_payload
+    {
+      name: params[:name],
+      description: params[:description],
+    }
+  end
 end

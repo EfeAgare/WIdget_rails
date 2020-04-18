@@ -7,4 +7,8 @@ module ApplicationHelper
       return false
     end
   end
+
+  # def username
+  #   session[:username]
+  # end
 end

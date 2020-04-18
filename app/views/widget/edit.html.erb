@@ -1,0 +1,31 @@
+<% if @widget.present? %>
+<div class="create-widget">
+  <div class="create-widget-title">
+    <h3>Edit your widget</h3>
+  </div>
+  <%= form_with id: "create-widget-form", url: update_widget_path ,autocomplete: "off",
+  remote: true do |f| %>
+  <div class="invalid-feedback form-message"></div>
+  <div class="form-group">
+    <%= f.text_field :name , class: "form-control", placeholder: "Name",
+    autocomplete: "password", value: @widget['widget']['name'] %>
+    <div class="invalid-feedback name"></div>
+  </div>
+  <div class="form-group">
+    <%= f.text_area :description, class: "form-control", placeholder:
+    "Description", autocomplete: "password", rows: "10", cols: "50", value: @widget['widget']['description']%>
+    <div class="invalid-feedback description"></div>
+  </div>
+  <div class="modal-footer">
+    <%= f.submit 'Submit', class: "btn btn-primary", data: { disable_with:
+    "Saving..." }%>
+  </div>
+  <% end %>
+</div>
+<% else %>
+<div class="create-widget">
+  <div class="create-widget-title">
+    <h3>Sorry the widget was not found</h3>
+  </div>
+</div>
+<% end %>
