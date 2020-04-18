@@ -14,5 +14,15 @@ module RestApiClient
 					}
         }
     end
+
+    def login_user_payload(params)
+        {
+          grant_type: "password",
+					client_id: ENV["client_id"],
+					client_secret: ENV["client_secret"],
+          username: params[:email],
+          password: params[:password],
+        }
+    end
  end
 end
