@@ -47,6 +47,11 @@ class WidgetController < ApplicationController
     end
   end
 
+  def delete
+    delete_user_widget(params[:id])
+    redirect_to root_path
+  end
+
 
   private
 

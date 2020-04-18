@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   post '/widgets/create', to: 'widget#create', as: 'create_widget'
   get '/widgets/:id/edit', to: 'widget#edit', as: 'edit_widget'
   put '/widgets/:id/edit', to: 'widget#update', as: 'update_widget'
-  post '/widgets/:id/delete', to: 'widget#delete', as: 'delete_widget'
+  delete '/widgets/:id/delete', to: 'widget#delete', as: 'delete_widget'
 end

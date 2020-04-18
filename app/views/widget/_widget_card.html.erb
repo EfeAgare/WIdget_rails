@@ -13,7 +13,9 @@
     </div>
     <div class="widget-actions">
       <a href="<%= edit_widget_path(widget['id']) %>" class="card-link">Edit</a>
-      <a href="<%= delete_widget_path(widget['id'])%>" class="card-link">Delete</a>
+      <%= link_to 'Delete', delete_widget_path(widget['id']), class: "card-link",
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
     </div>
   </div>
 </div>
