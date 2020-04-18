@@ -9,4 +9,8 @@ class WidgetController < ApplicationController
       return @widgets = @widgets['data']['widgets'].first(8)
     end
   end
+
+  def new
+    
+  end
 end
