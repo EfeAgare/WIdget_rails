@@ -3,11 +3,11 @@
   <div class="create-widget-title">
     <h3>Edit your widget</h3>
   </div>
-  <%= form_with id: "create-widget-form", url: create_widget_path ,autocomplete: "off",
+  <%= form_with id: "create-widget-form", url: update_widget_path ,autocomplete: "off",
   remote: true do |f| %>
   <div class="invalid-feedback form-message"></div>
   <div class="form-group">
-    <%= f.text_field :name , class: "form-control", placeholder: "Title",
+    <%= f.text_field :name , class: "form-control", placeholder: "Name",
     autocomplete: "password", value: @widget['widget']['name'] %>
     <div class="invalid-feedback name"></div>
   </div>
