@@ -30,7 +30,12 @@ class WidgetController < ApplicationController
   end
 
   def edit
-    
+    @widget = get_widget(params[:id])['data']
+  end
+
+  def update
+    @widget = update_widget(params[:id], )['data']
+    binding.pry
   end
 
   private
@@ -41,5 +46,12 @@ class WidgetController < ApplicationController
       description: params[:description],
       kind: params[:kind] == '1' ? 'hidden' : 'visible'
     }
- end
+  end
+
+  def update_widget_payload
+    {
+      name: params[:name],
+      description: params[:description],
+    }
+  end
 end
