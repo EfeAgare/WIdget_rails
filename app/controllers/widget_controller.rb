@@ -6,7 +6,7 @@ class WidgetController < ApplicationController
     if @widgets['code'] == 10
       return @widgets = ''
     else
-      return @widgets = @widgets['data']['widgets'].first(8)
+      return @widgets = @widgets['data']['widgets']
     end
   end
 
@@ -45,6 +45,11 @@ class WidgetController < ApplicationController
         redirect_to root_path
       end
     end
+  end
+
+  def delete
+    delete_user_widget(params[:id])
+    redirect_to root_path
   end
 
 
