@@ -1,6 +1,6 @@
 <div
   class="modal fade"
-  id="registerUserModal"
+  id="loginUserModal"
   tabindex="-1"
   role="dialog"
   aria-labelledby="exampleModalLabel"
@@ -9,7 +9,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Register</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Login</h5>
         <button
           type="button"
           class="close"
@@ -21,19 +21,9 @@
       </div>
 
       <div class="modal-body">
-        <%= form_with id: "new-user", url: register_user_path ,autocomplete: "off", remote: true do
+        <%= form_with id: "login-user", url: register_user_path ,autocomplete: "off", remote: true do
         |f| %>
         <div class="invalid-feedback form-message"></div>
-        <div class="form-group">
-          <%= f.text_field :first_name, class: "form-control", placeholder:
-          "Firstname", autocomplete: "password"%>
-          <div class="invalid-feedback first_name"></div>
-        </div>
-        <div class="form-group">
-          <%= f.text_field :last_name, class: "form-control", placeholder:
-          "Lastname", autocomplete: "password"%>
-          <div class="invalid-feedback last_name"></div>
-        </div>
         <div class="form-group">
           <%= f.email_field :email, class: "form-control", placeholder:
           "Email", autocomplete: "password"%>
@@ -45,7 +35,7 @@
           <div class="invalid-feedback password"></div>
         </div>
         <div class="modal-footer">
-          <%= f.submit 'Sign up ', class: "btn btn-primary", data: {
+          <%= f.submit 'Login', class: "btn btn-primary", data: {
           disable_with: "Saving..." }%>
         </div>
         <% end %>
