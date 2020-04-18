@@ -18,6 +18,7 @@ class AuthenticationController < ApplicationController
   def login_user
       @user = Validations::LoginUser.new(login_user_params)
   
+      
       if !@user.valid?
         json_response(@user.errors, :bad_request)
       else
@@ -25,7 +26,8 @@ class AuthenticationController < ApplicationController
         if response['message'] != 'Success'
           json_response(response)
         else
-
+          authorise_user(response)
+          redirect_to root_path
         end
       end
   end
@@ -40,10 +42,13 @@ class AuthenticationController < ApplicationController
         password: params[:password]
     }
   end
+
   def login_user_params 
     {
-        email: params[:email],
+        username: params[:email],
         password: params[:password]
     }
   end
+
+  u
 end

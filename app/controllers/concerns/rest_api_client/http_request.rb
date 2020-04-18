@@ -6,15 +6,12 @@ module RestApiClient
     def create_user(payload)
       resData = RestClient::Request.execute(method: :post, url: "#{BASE_URL}/api/v1/users", payload: create_user_payload(payload),
        headers: {'content-type': 'application/json'})  {|response, request, result| response }
-
-       session[:token] = resData['data']['token']['access_token']
-       session[:refresh_token] = resData['data']['token']['refresh_token']
       JSON.parse(resData)
     end
 
     def get_all_widget
       resData = RestClient::Request.execute(method: :get, url: "#{BASE_URL}/api/v1/widgets",
-      headers: {'content-type': 'application/json', :Authorization => "Bearer #{session[:token] }")  {|response, request, result| response }
+      headers: {'content-type': 'application/json', :Authorization => "Bearer #{'485c096b4a04f02ab532e3b8e846fa945fbc270b483344eeda553e3efe5c878e'}"} )  {|response, request, result| response }
 
      JSON.parse(resData)
     end
@@ -23,11 +20,9 @@ module RestApiClient
       resData = RestClient::Request.execute(method: :post, url: "#{BASE_URL}/oauth/token", payload: login_user_payload(payload),
       headers: {'content-type': 'application/json'})  {|response, request, result| response }
 
-      binding.pry
-      session[:token] = resData['data']['token']['access_token']
-      session[:refresh_token] = resData['data']['token']['refresh_token']
-
      JSON.parse(resData)
     end
   end
 end
+
+# 485c096b4a04f02ab532e3b8e846fa945fbc270b483344eeda553e3efe5c878e

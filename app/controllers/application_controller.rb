@@ -3,16 +3,16 @@ class ApplicationController < ActionController::Base
   include RestApiClient::Payload
   include Response
 
-  before_action :authorize_request
+  before_action :current_user
 
   private   
-  def current_user   
-    @current_user = session[:token]
-    if @current_user
-      
-    else
-      redirect_to root_path
-    end
-  end 
- 
+
+  def authorise_user(response)
+    session[:token] = response['data']['token']['access_token']
+    session[:refresh_token] = response['data']['token']['refresh_token']
+  end
+
+  def current_user
+    return true unless session[:token] == nil
+  end
 end

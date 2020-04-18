@@ -19,7 +19,7 @@ window.addEventListener('load', () => {
     const [data, status, xhr] = event.detail;
 
   
-    if (data.email) {
+    if (data.username) {
       $('.invalid-feedback.email').text(`Please enter a valid email`).show();
     }
 
