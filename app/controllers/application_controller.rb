@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   include RestApiClient::Payload
   include Response
 
+  protect_from_forgery with: :exception 
   before_action :current_user
 
   private   
@@ -13,6 +14,10 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    return true unless session[:token] == nil
+    if session[:token] != nil
+      return true
+    else
+      return false
+    end
   end
 end

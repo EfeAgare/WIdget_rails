@@ -32,6 +32,13 @@ class AuthenticationController < ApplicationController
       end
   end
 
+  def logout_user
+    revoke_token
+    session[:token] = nil
+    session[:refresh_token] = nil
+    redirect_to root_path
+  end
+
   private
 
   def user_params 

@@ -1,0 +1,7 @@
+<%= form_with id: 'logout_user', url: logout_user_path do
+|f| %>
+ <div class="modal-footer">
+  <%= f.submit 'Logout', class: "btn btn-primary" type: 'button', data: {
+    disable_with: "Loging out..." }%>
+</div>
+<% end %>
