@@ -8,6 +8,7 @@
   <hr class="my-4" />
   <p></p>
   <p class="lead">
+    <% if !current_user %>
     <a
       class="btn btn-primary btn-lg"
       href="#"
@@ -16,14 +17,19 @@
       data-target="#registerUserModal"
       >Get Started</a
     >
+    <%end%>
   </p>
 </div>
 <div class="container-width">
-  <% if @widgets.length %>
+  <% if @widgets.length > 0 %>
 
   <div class="row">
-    <% @widgets.each do |widget| %> <%= render "widget/widget_card",
-    widget: widget %> <% end %>
+    <% @widgets.each do |widget| %> <%= render "widget/widget_card", widget:
+    widget %> <% end %>
   </div>
+  <% else %>
+  <p class="lead">
+    No widgets yet
+  </p>
   <% end %>
 </div>

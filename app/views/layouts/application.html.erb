@@ -13,7 +13,7 @@
   <body>
     <nav class="navbar navbar-light bg-light justify-content-between">
       <form class="form-inline form-control-lg">
-        <div class="row header" >
+        <div class="row header">
           <div class="col">
             <a class="navbar-brand" href="#">Widget</a>
           </div>
@@ -35,6 +35,14 @@
           </div>
         </div>
       </form>
+      <% if current_user %> 
+      <%= form_with url: logout_user_path, remote: true do
+      |f| %>
+      <div class="modal-footer">
+        <%= f.submit 'Logout', class: "btn btn-primary" %>
+      </div>
+      <% end %>
+      <% else %>
       <form class="form-inline">
         <button
           class="btn btn-primary my-2 my-sm-0"
@@ -42,13 +50,14 @@
           data-toggle="modal"
           data-target="#loginUserModal"
         >
-         <%= current_user ? "Logout" : "Login" %>
+          Login
         </button>
+        <% end %>
       </form>
     </nav>
     <%= yield %>
   </body>
 
-<%= render "authentication/register_user_form" %>
-<%= render "authentication/login_user_form" %>
+  <%= render "authentication/register_user_form" %> 
+  <%= render "authentication/login_user_form" %>
 </html>
