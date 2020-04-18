@@ -2,18 +2,18 @@
   <div class="create-widget-title">
     <h3>Create your widget</h3>
   </div>
-  <%= form_with id: "new-user", url: create_widget_path ,autocomplete: "off",
+  <%= form_with id: "create-widget-form", url: create_widget_path ,autocomplete: "off",
   remote: true do |f| %>
   <div class="invalid-feedback form-message"></div>
   <div class="form-group">
     <%= f.text_field :name, class: "form-control", placeholder: "Title",
     autocomplete: "password"%>
-    <div class="invalid-feedback first_name"></div>
+    <div class="invalid-feedback name"></div>
   </div>
   <div class="form-group">
     <%= f.text_area :description, class: "form-control", placeholder:
     "Description", autocomplete: "password", rows: "10", cols: "50"%>
-    <div class="invalid-feedback last_name"></div>
+    <div class="invalid-feedback description"></div>
   </div>
   <div class="form-group">
     <div class="custom-control custom-radio custom-control-inline">
