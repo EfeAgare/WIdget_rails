@@ -1,0 +1,29 @@
+<div class="jumbotron">
+  <h1 class="display-4">Welcome to widget</h1>
+  <p class="lead">Share your widget with the world</p>
+  <p class="lead">
+    There is no limit to what you can achieve with a widget.. Upload, the world
+    is ready to see
+  </p>
+  <hr class="my-4" />
+  <p></p>
+  <p class="lead">
+    <a
+      class="btn btn-primary btn-lg"
+      href="#"
+      role="button"
+      data-toggle="modal"
+      data-target="#exampleModal"
+      >Get Started</a
+    >
+  </p>
+</div>
+<div class="container-width">
+  <% if @widgets.length %>
+
+  <div class="row">
+    <% @widgets.each do |widget| %> <%= render "widget/widget_card",
+    widget: widget %> <% end %>
+  </div>
+  <% end %>
+</div>

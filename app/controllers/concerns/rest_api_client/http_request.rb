@@ -9,5 +9,12 @@ module RestApiClient
 
       JSON.parse(resData)
     end
+
+    def get_all_widget
+      resData = RestClient::Request.execute(method: :get, url: "#{BASE_URL}/api/v1/widgets",
+      headers: {'content-type': 'application/json', :Authorization => "Bearer #{'672f9f8f8333210497bfc07c7293654d5de836e678229275561ebda978d3b8ab'}" })  {|response, request, result| response }
+
+     JSON.parse(resData)
+    end
   end
 end

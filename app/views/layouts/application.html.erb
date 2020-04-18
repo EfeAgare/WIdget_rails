@@ -2,18 +2,52 @@
 <html>
   <head>
     <title>WidgetRails</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= csrf_meta_tags %> <%= csp_meta_tag %>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%= stylesheet_link_tag 'application', media: 'all',
+    'data-turbolinks-track': 'reload' %> <%= javascript_pack_tag 'application',
+    'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-   
-    <%= toastr_flash %>
-
+    <nav class="navbar navbar-light bg-light justify-content-between">
+      <form class="form-inline form-control-lg">
+        <div class="row header" >
+          <div class="col">
+            <a class="navbar-brand" href="#">Widget</a>
+          </div>
+          <div class="col-6">
+            <div class="input-group mb-3">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Search"
+                aria-label="Recipient's username"
+                aria-describedby="basic-addon2"
+              />
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button">
+                  Search
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <form class="form-inline">
+        <button
+          class="btn btn-primary my-2 my-sm-0"
+          type="button"
+          data-toggle="modal"
+          data-target="#exampleModal"
+        >
+          Login
+        </button>
+      </form>
+    </nav>
     <%= yield %>
   </body>
+
+<%= render "authentication/register_user_form" %>
 </html>
