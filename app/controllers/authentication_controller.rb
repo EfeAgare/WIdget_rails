@@ -1,6 +1,5 @@
 class AuthenticationController < ApplicationController
-  include RestApiClient::HttpRequest
-  include Payload
+
 
   def index
   end
@@ -15,7 +14,7 @@ class AuthenticationController < ApplicationController
       if response['message'] != 'Success'
         json_response(response)
       else
-        
+
       end
     end
   end
