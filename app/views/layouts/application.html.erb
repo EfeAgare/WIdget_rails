@@ -42,7 +42,7 @@
           data-toggle="modal"
           data-target="#loginUserModal"
         >
-          Login
+         <%= current_user ? "Logout" : "Login" %>
         </button>
       </form>
     </nav>

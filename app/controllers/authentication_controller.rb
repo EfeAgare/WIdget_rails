@@ -10,7 +10,8 @@ class AuthenticationController < ApplicationController
       if response['message'] != 'Success'
         json_response(response)
       else
-
+        authorise_user(response)
+        redirect_to root_path
       end
     end
   end
@@ -18,7 +19,6 @@ class AuthenticationController < ApplicationController
   def login_user
       @user = Validations::LoginUser.new(login_user_params)
   
-      
       if !@user.valid?
         json_response(@user.errors, :bad_request)
       else
