@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   post '/oauth/token', to: 'authentication#login_user', as: 'login_user'
   post '/oauth/revoke', to: 'authentication#logout_user', as: 'logout_user'
 
-  get '/widgets/new', to: 'widget#new', as: 'create_widget'
+  get '/widgets/new', to: 'widget#new', as: 'new_widget'
+  post '/widgets/create', to: 'widget#create', as: 'create_widget'
 end

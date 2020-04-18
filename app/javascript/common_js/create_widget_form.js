@@ -3,7 +3,7 @@ window.addEventListener('load', () => {
 
   element.addEventListener('keypress', () => {
     $('.invalid-feedback').text('');
-  }); 
+  });
 
   element.addEventListener('ajax:success', (event) => {
     const [data, status, xhr] = event.detail;
@@ -11,16 +11,14 @@ window.addEventListener('load', () => {
       $('.invalid-feedback.form-message').text(data.message).show();
       return;
     }
-    $('.modal').hide();
-    $('.modal-backdrop').hide();
   });
 
   element.addEventListener('ajax:error', (event) => {
     const [data, status, xhr] = event.detail;
-
-  
     if (data.name) {
-      $('.invalid-feedback.title').text(`Please enter a valid Title of length 5`).show();
+      $('.invalid-feedback.name')
+        .text(`Please enter a valid Title of length 5`)
+        .show();
     }
 
     if (data.description) {

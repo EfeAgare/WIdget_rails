@@ -15,7 +15,7 @@
       <form class="form-inline form-control-lg">
         <div class="row header">
           <div class="col">
-            <a class="navbar-brand" href="#">Widget</a>
+            <a class="navbar-brand" href="<%= root_path%>">Widget</a>
           </div>
           <div class="col-6">
             <div class="input-group mb-3">
@@ -35,14 +35,14 @@
           </div>
         </div>
       </form>
-      <% if current_user %> 
-      <%= form_with url: logout_user_path, remote: true do
-      |f| %>
+      <% if current_user %> <%= form_with url: logout_user_path, class:
+      "form-inline" ,remote: true do |f| %>
+      <a class="navbar-brand" href="<%= new_widget_path %>">Create Widget</a>
       <div class="modal-footer">
         <%= f.submit 'Logout', class: "btn btn-primary" %>
       </div>
-      <% end %>
-      <% else %>
+
+      <% end %> <% else %>
       <form class="form-inline">
         <button
           class="btn btn-primary my-2 my-sm-0"

@@ -31,5 +31,12 @@ module RestApiClient
 
      JSON.parse(resData)
     end
+
+    def create_widget(payload)
+      resData = RestClient::Request.execute(method: :post, url: "#{BASE_URL}/api/v1/widgets",payload:{ 'widget': payload},
+      headers: {'content-type': 'application/json', Authorization: "Bearer #{session[:token]}"} )  {|response, request, result| response }
+
+     JSON.parse(resData)
+    end
   end
 end
