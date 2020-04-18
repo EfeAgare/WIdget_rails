@@ -12,8 +12,11 @@ class AuthenticationController < ApplicationController
       json_response(@user.errors, :bad_request)
     else
       response = create_user(user_params)
-      binding.pry
-      json_response(response)
+      if response['message'] != 'Success'
+        json_response(response)
+      else
+        
+      end
     end
   end
 
