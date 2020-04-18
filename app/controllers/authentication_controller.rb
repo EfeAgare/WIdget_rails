@@ -16,12 +16,12 @@ class AuthenticationController < ApplicationController
   end
 
   def login_user
-      @user = Validations::RegisterUser.new(login_user_params)
+      @user = Validations::LoginUser.new(login_user_params)
   
       if !@user.valid?
         json_response(@user.errors, :bad_request)
       else
-        response = create_user(user_params)
+        response = authenticate_user(user_params)
         if response['message'] != 'Success'
           json_response(response)
         else
