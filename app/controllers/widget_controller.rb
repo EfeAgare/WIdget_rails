@@ -29,6 +29,10 @@ class WidgetController < ApplicationController
     end
   end
 
+  def edit
+    
+  end
+
   private
 
   def widget_payload
