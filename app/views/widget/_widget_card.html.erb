@@ -5,13 +5,15 @@
       <p class="card-text">
         <%= widget['description'] %>
       </p>
-      <div class='card-text card-text-user'>
-
-   
+    </div>
+    <div class="card-text card-text-user">
       <p class="card-text-name">
-       Created by:  <%= widget['user']['name'] %>
+        Created by: <%= widget['user']['name'] %>
       </p>
     </div>
+    <div class="widget-actions">
+      <a href="<%= edit_widget_path(widget['id']) %>" class="card-link">Edit</a>
+      <a href="<%= delete_widget_path(widget['id'])%>" class="card-link">Delete</a>
     </div>
   </div>
 </div>

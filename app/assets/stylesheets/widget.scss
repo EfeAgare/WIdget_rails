@@ -25,6 +25,7 @@
 .card-text-user {
   display: flex;
   justify-content: flex-end;
+  padding-right: 1.25rem;
 }
 
 .create-widget {
@@ -40,4 +41,22 @@
 
 .dropdown-menu {
   left: -120px;
+}
+
+.no-widget-lead {
+  text-align: center;
+}
+
+.widget-actions {
+  display: flex;
+  justify-content: space-between;
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+.card-body {
+  height: 170px !important;
+
 }
