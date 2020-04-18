@@ -1,6 +1,5 @@
 class WidgetController < ApplicationController
   def index
-    
     @widgets = get_all_widget
 
     if @widgets['code'] == 10
@@ -11,7 +10,6 @@ class WidgetController < ApplicationController
   end
 
   def new
-    
   end
 
   def create
@@ -24,7 +22,7 @@ class WidgetController < ApplicationController
       if response['message'] != 'Success'
         json_response(response)
       else
-        redirect_to root_path
+        redirect_to user_widget_path
       end
     end
   end
@@ -42,14 +40,24 @@ class WidgetController < ApplicationController
       if response['message'] != 'Success'
         json_response(response)
       else
-        redirect_to root_path
+        redirect_to user_widget_path
       end
     end
   end
 
   def delete
     delete_user_widget(params[:id])
-    redirect_to root_path
+    redirect_to user_widget_path
+  end
+
+  def user_widget
+    @widgets = get_all_user_widget
+
+    if @widgets['code'] == 10
+      return @widgets = ''
+    else
+      return @widgets = @widgets['data']['widgets']
+    end
   end
 
 

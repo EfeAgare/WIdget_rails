@@ -11,7 +11,7 @@ class AuthenticationController < ApplicationController
         json_response(response)
       else
         authorise_user(response)
-        redirect_to root_path
+        redirect_to user_widget_path
       end
     end
   end
@@ -27,7 +27,7 @@ class AuthenticationController < ApplicationController
           json_response(response)
         else
           authorise_user(response)
-          redirect_to root_path
+          redirect_to user_widget_path
         end
       end
   end

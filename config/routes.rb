@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   get '/widgets/:id/edit', to: 'widget#edit', as: 'edit_widget'
   put '/widgets/:id/edit', to: 'widget#update', as: 'update_widget'
   delete '/widgets/:id/delete', to: 'widget#delete', as: 'delete_widget'
+  get '/widgets/index', to: 'widget#user_widget', as: 'user_widget'
 end
