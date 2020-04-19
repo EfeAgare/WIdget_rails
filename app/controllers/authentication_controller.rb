@@ -39,6 +39,19 @@ class AuthenticationController < ApplicationController
     redirect_to root_path
   end
 
+  def check_email
+    if params[:email].present?
+      response = check_user_email(params[:email])
+      if response['data']['available'] = true
+        json_response({message: 'This email is available'})
+      else
+        json_response({message: 'This email is not available '})
+      end
+    else
+      json_response({message: ''})
+    end
+  end
+
   private
 
   def user_params 
@@ -56,6 +69,4 @@ class AuthenticationController < ApplicationController
         password: params[:password]
     }
   end
-
-  u
 end
