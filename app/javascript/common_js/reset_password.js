@@ -1,6 +1,6 @@
 
 window.addEventListener('load', () => {
-  const element = document.querySelector('#resetPasswordModal');
+  const element = document.querySelector('#reset-password-form');
 
   element.addEventListener('keypress', () => {
     $('.invalid-feedback').text('');

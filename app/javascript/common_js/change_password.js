@@ -1,6 +1,6 @@
 
 window.addEventListener('load', () => {
-  const element = document.querySelector('#changePasswordModal');
+  const element = document.querySelector('#change-password-form');
 
   element.addEventListener('keypress', () => {
     $('.invalid-feedback').text('');
@@ -19,9 +19,9 @@ window.addEventListener('load', () => {
   element.addEventListener('ajax:error', (event) => {
     const [data, status, xhr] = event.detail;
 
-  
-    if (data.username) {
-      $('.invalid-feedback.email').text(`Please enter a valid email`).show();
+    console.log(data)
+    if (data.message) {
+      $('.invalid-feedback.form-message').text(data.message).show();
     }
 
     if (data.password) {
