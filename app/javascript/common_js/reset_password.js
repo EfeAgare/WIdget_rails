@@ -8,26 +8,18 @@ window.addEventListener('load', () => {
 
   element.addEventListener('ajax:success', (event) => {
     const [data, status, xhr] = event.detail;
-    if (data.message != 'Success') {
-      $('.invalid-feedback.form-message').text(data.message).show();
-      return;
-    }
-    $('.modal').hide();
-    $('.modal-backdrop').hide();
+    
+    $('.invalid-feedback.form-message').text(data.message).show();
+    $('.reset-email').val('')
+    setTimeout(function(){ $('.invalid-feedback.form-message').text('') }, 8000);
   });
 
   element.addEventListener('ajax:error', (event) => {
     const [data, status, xhr] = event.detail;
 
   
-    if (data.username) {
+    if (data.message) {
       $('.invalid-feedback.email').text(`Please enter a valid email`).show();
-    }
-
-    if (data.password) {
-      $('.invalid-feedback.password')
-        .text(`Please enter a valid password with minimum lenght of 8`)
-        .show();
     }
   });
 });

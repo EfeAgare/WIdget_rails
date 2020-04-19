@@ -50,14 +50,16 @@ class UserController < ApplicationController
     end
   end
 
- 
-
   def reset_password
-    binding.pry
+    if params[:email].present?
+      response = reset_user_password(reset_password_params)
+      json_response(response)
+    else
+      json_response({message: 'Please enter a valid email'}, :bad_request)
+    end
   end
 
- private
-  
+  private
 
   def password_equal?
     params[:current_password] == params[:new_password]
@@ -73,6 +75,16 @@ class UserController < ApplicationController
         current_password: params[:current_password],
         new_password: params[:new_password]
     }
+    }
+  end
+
+  def reset_password_params
+    {
+      user: {
+        email: params[:email]
+    },
+    client_id: ENV['client_id'],
+    client_secret: ENV['client_secret']
     }
   end
 end
