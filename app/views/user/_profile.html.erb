@@ -39,7 +39,7 @@
               <select
                 class="custom-select mr-sm-2"
                 id="inlineFormCustomSelect"
-                name="Id"
+                name="id"
               >
                 <option value="<%=user['id']%>">All</option>
               </select>
@@ -67,6 +67,8 @@
         </div>
       </form>
     <div class="user-search-content">
+
+      <%= render "user/user_widget_search_result", widget: @widgets %>
       
     </div>
     </div>

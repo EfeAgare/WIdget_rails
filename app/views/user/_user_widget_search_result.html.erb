@@ -1,0 +1,16 @@
+<div class="container-width">
+
+  <% if @widgets.length > 0 %>
+   <div class="row">
+    <% @widgets.each do |widget| %> 
+    <%= render "widget/widget_card", widget: widget %>
+   <% end %>
+  </div>
+  <% else %>
+  <div class="create-widget">
+    <div class="create-widget-title">
+      <h3>Sorry the widget was not found</h3>
+    </div>
+  </div>
+  <% end %>
+</div>
