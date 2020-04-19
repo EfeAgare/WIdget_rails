@@ -1,0 +1,17 @@
+<div class="jumbotron">
+  <p class="search result">Your search result</p>
+</div>
+<div class="container-width">
+
+  <% if @widgets.length >= 1 %>
+  <div class="row">
+    <% @widgets.each do |widget| %> 
+    <%= render "widget/widget_card", widget: widget %>
+    <% end %>
+  </div>
+  <% else %>
+  <p class="no-widget-lead">
+    Couldn't find widgets matching your search
+  </p>
+  <% end %>
+</div>

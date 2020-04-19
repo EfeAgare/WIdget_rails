@@ -1,4 +1,6 @@
+
 <div class="jumbotron">
+  <!-- <% if !current_user %> -->
   <h1 class="display-4">Welcome to widget</h1>
   <p class="lead">Share your widget with the world</p>
   <p class="lead">
@@ -8,7 +10,7 @@
   <hr class="my-4" />
   <p></p>
   <p class="lead">
-    <% if !current_user %>
+   
     <a
       class="btn btn-primary btn-lg"
       href="#"
@@ -17,9 +19,11 @@
       data-target="#registerUserModal"
       >Get Started</a
     >
-    <%end%>
+   
   </p>
+  <!-- <%end%> -->
 </div>
+
 <div class="container-width">
   <% if @widgets.length > 0 %>
   <div class="row">

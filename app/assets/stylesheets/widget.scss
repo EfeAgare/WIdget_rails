@@ -58,5 +58,26 @@
 }
 .card-body {
   height: 170px !important;
+}
 
+.form-control-lg {
+  width: 40%;
+}
+
+.search-item-bar {
+  display: flex;
+}
+
+.select-tag {
+  width: 8rem;
+}
+
+@media (min-width: 576px) {
+  .mr-sm-2,
+  .mx-sm-2 {
+    margin-right: unset !important;
+  }
+}
+.search.result{
+ text-align: center;
 }
