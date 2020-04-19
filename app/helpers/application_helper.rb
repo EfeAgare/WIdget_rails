@@ -9,6 +9,6 @@ module ApplicationHelper
   end
 
   def check_params
-    user_profile_path == request.path_info
+    return true if edit_profile_path  || user_profile_path == request.path_info
   end
 end

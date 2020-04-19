@@ -24,4 +24,7 @@ Rails.application.routes.draw do
   post '/user/change', to: 'user#change_password', as: 'change_password'
   post '/user/reset', to: 'user#reset_password', as: 'reset_password'
 
+  get '/user/edit', to: 'user#edit', as: 'edit_profile'
+  post '/user/profile/edit', to: 'user#edit_user', as: 'edit_user'
+
 end

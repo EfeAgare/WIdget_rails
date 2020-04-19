@@ -17,7 +17,6 @@ window.addEventListener('load', () => {
   element.addEventListener('ajax:error', (event) => {
     const [data, status, xhr] = event.detail;
 
-  
     if (data.message) {
       $('.invalid-feedback.email').text(`Please enter a valid email`).show();
     }

@@ -27,7 +27,7 @@
             <div class="profile-stat-text"><%= user['date_of_birth'] %></div>
             <% if check_params %>
             <div class="change-reset-password">
-             
+              <a href="<%= edit_profile_path %>" class="card-link btn btn-primary my-2 my-sm-0">Edit Profile</a>
               <button
                 class="btn btn-primary my-2 my-sm-0"
                 type="button"
@@ -54,6 +54,7 @@
   </div>
   <div class="col-md-9">
     <div class="profile-content">
+      <% if @widgets %>
       <form class="form-inline form-control-lg-s" action="/user/widgets/search">
         <div class="row header user-search">
           <div class="col-6 search-item-bar">
@@ -88,9 +89,14 @@
           </div>
         </div>
       </form>
+      <% end %>
+      <% if @widgets %>
       <div class="user-search-content">
         <%= render "user/user_widget_search_result", widget: @widgets %>
       </div>
+      <% else%> 
+      <%= render "user/edit_user_form", user: user %>
+      <%end%>
     </div>
   </div>
 </div>

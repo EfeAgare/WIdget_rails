@@ -130,5 +130,13 @@ module RestApiClient
   
       JSON.parse(resData)
     end
+
+
+    def update_user(payload)
+      resData = RestClient::Request.execute(method: :put, url: "#{BASE_URL}/api/v1/users/me", payload: payload,
+        headers: {'content-type': 'application/json', Authorization:  "Bearer #{session[:token]}"} )  {|response, request, result| response }
+  
+      JSON.parse(resData)
+    end
   end
 end
