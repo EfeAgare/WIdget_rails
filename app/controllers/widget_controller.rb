@@ -1,4 +1,6 @@
 class WidgetController < ApplicationController
+  before_action :authorise, except: %i[index]
+  
   def index
     @widgets = get_all_widget
 

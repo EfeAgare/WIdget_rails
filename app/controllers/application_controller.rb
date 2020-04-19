@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   include Response
 
   protect_from_forgery with: :exception 
-  before_action :current_user
+  before_action :authorise
 
   private   
 
@@ -28,5 +28,10 @@ class ApplicationController < ActionController::Base
 
   def render_404
     render template: 'errors/error', status: :not_found
+  end
+
+  def authorise
+    flash[:notice] = 'You need to login or signup to access the page'
+    redirect_to root_path unless current_user
   end
 end
