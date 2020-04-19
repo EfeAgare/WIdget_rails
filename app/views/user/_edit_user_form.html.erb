@@ -1,0 +1,32 @@
+<div class="create-widget">
+  <div class="create-widget-title">
+    <h3>Edit your profile</h3>
+  </div>
+  <%= form_with id: "edit-user-form", url: edit_user_path ,autocomplete:
+  "off", remote: true do |f| %>
+  <div class="invalid-feedback form-message"></div>
+  <div class="form-group">
+    <%= f.text_field :first_name , class: "form-control", placeholder:
+    "Firstname", autocomplete: "password", value: user['first_name'] %>
+    <div class="invalid-feedback first_name"></div>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :last_name , class: "form-control", placeholder:
+    "Lastname", autocomplete: "password", value: user['last_name'] %>
+    <div class="invalid-feedback last_name"></div>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :image_url , class: "form-control", placeholder: "Image
+    URl", autocomplete: "password", value: user['images']['original_url'] %>
+    <div class="invalid-feedback image_url"></div>
+  </div>
+  <div class="form-group">
+    <%= f.date_field :date_of_birth , class: "form-control", 
+     autocomplete: "password", value: user['date_of_birth'] %>
+  </div>
+  <div class="modal-footer">
+    <%= f.submit 'Submit', class: "btn btn-primary", data: { disable_with:
+    "Saving..." }%>
+  </div>
+  <% end %>
+</div>

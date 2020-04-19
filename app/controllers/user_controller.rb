@@ -59,6 +59,17 @@ class UserController < ApplicationController
     end
   end
 
+
+  def edit
+    @user = get_current_user_profile['data']['user']
+  end
+
+  def edit_user
+    response = update_user(edit_user_params)
+    flash[:notice] = "Profile updated successfully"
+    redirect_to user_profile_path
+  end
+
   private
 
   def password_equal?
@@ -85,6 +96,18 @@ class UserController < ApplicationController
     },
     client_id: ENV['client_id'],
     client_secret: ENV['client_secret']
+    }
+  end
+
+
+  def edit_user_params
+    {
+      user: {
+        first_name: params[:first_name],
+        last_name: params[:last_name],
+        date_of_birth: params[:date_of_birth],
+        image_url: params[:image_url]
+      }
     }
   end
 end
