@@ -36,14 +36,13 @@ class UserController < ApplicationController
 
 
   def change_password
-    binding.pry
     if password_equal? 
-      if is_password_valid?
+      if !is_password_valid?
         json_response({message: 'Password must be of minimum lenght of 8'}, :bad_request)
       else
-        response = change_user_password(payload)
+        response = change_user_password(change_password_params)
         authorise_user(response)
-        json_response({message: 'Password changed successufull'})
+        json_response({message: 'Password changed successufully'})
 
       end
     else
@@ -65,7 +64,7 @@ class UserController < ApplicationController
   end
 
   def is_password_valid?
-    params[:new_password].strip.length
+    params[:new_password].strip.length == 8
   end
 
   def change_password_params

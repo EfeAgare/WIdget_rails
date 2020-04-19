@@ -8,18 +8,17 @@ window.addEventListener('load', () => {
 
   element.addEventListener('ajax:success', (event) => {
     const [data, status, xhr] = event.detail;
-    if (data.message != 'Success') {
-      $('.invalid-feedback.form-message').text(data.message).show();
-      return;
-    }
-    $('.modal').hide();
-    $('.modal-backdrop').hide();
+
+    $('.invalid-feedback.form-message').text(data.message).show();
+    $('#current_password').val('')
+    $('#new_password').val('')
+    setTimeout(function(){ $('.invalid-feedback.form-message').text('') }, 4000);
+    
   });
 
   element.addEventListener('ajax:error', (event) => {
     const [data, status, xhr] = event.detail;
 
-    console.log(data)
     if (data.message) {
       $('.invalid-feedback.form-message').text(data.message).show();
     }

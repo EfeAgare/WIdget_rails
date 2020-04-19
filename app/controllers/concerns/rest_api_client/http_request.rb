@@ -118,7 +118,7 @@ module RestApiClient
 
 
     def change_user_password(payload)
-      resData = RestClient::Request.execute(method: :get, url: "#{BASE_URL}/api/v1/users/me/password", payload: payload,
+      resData = RestClient::Request.execute(method: :post, url: "#{BASE_URL}/api/v1/users/me/password", payload: payload,
         headers: {'content-type': 'application/json', Authorization:  "Bearer #{session[:token]}"} )  {|response, request, result| response }
   
       JSON.parse(resData)
