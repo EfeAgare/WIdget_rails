@@ -2,7 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
 body {
   background: #f1f3fa;
 }
@@ -45,7 +44,6 @@ body {
 }
 
 .profile-usertitle-job {
-  text-transform: uppercase;
   color: #5b9bd1;
   font-size: 12px;
   font-weight: 600;
@@ -58,7 +56,6 @@ body {
   background: #fff;
   min-height: 600px;
 }
-
 
 .portlet {
   margin-top: 0;
@@ -88,8 +85,8 @@ body {
 }
 .profile-stat-title {
   color: #7f90a4;
-  font-size: 25px;
   text-align: center;
+  width: 100%;
 }
 .uppercase {
   text-transform: uppercase !important;
@@ -104,4 +101,25 @@ body {
 
 .user-select-tag {
   width: unset !important;
+}
+
+@media (min-width: 768px) {
+  .col-md-4 {
+    flex: 0 0 100%;
+    max-width: 100% !important;
+  }
+}
+@media (min-width: 576px) {
+  .col-sm-4 {
+    flex: 0 0 100%;
+    max-width: 100% !important;
+  }
+}
+
+.user-search-input-group {
+  flex-wrap: unset !important;
+}
+
+.row.header.user-search {
+  width: 100%;
 }
