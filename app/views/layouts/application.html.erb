@@ -12,22 +12,30 @@
 
   <body>
     <nav class="navbar navbar-light bg-light justify-content-between">
-      <form class="form-inline form-control-lg">
+      <form class="form-control-lg" action="/widgets/search">
         <div class="row header">
           <div class="col">
             <a class="navbar-brand" href="<%= root_path%>">Widget</a>
           </div>
-          <div class="col-6">
+          <div class="col-6 search-item-bar">
+            <div class="input-group-prepend select-tag">
+              <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="y">
+                <option value="All">All</option>
+                <option value="Me">Me</option>
+                <option value="Id">Id</option>
+              </select>
+            </div>
             <div class="input-group mb-3">
               <input
                 type="text"
                 class="form-control"
-                placeholder="Search"
+                placeholder="Search widgets"
+                name="term"
                 aria-label="Recipient's username"
                 aria-describedby="basic-addon2"
               />
               <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="button">
+                <button class="btn btn-outline-secondary" type="submit" data-disable-with="Searching...">
                   Search
                 </button>
               </div>
@@ -35,24 +43,35 @@
           </div>
         </div>
       </form>
-      <% if current_user %> 
+      <% if current_user %>
       <div class="dropdown show">
-        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-         
+        <a
+          class="btn btn-secondary dropdown-toggle"
+          href="#"
+          role="button"
+          id="dropdownMenuLink"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
         </a>
-      
+
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <a class="dropdown-item" href="<%= new_widget_path %>">Create Widget</a>
-          <%= form_with url: logout_user_path, class:
-          "form-inline" ,remote: true do |f| %>
+          <a class="dropdown-item" href="<%= new_widget_path %>"
+            >Create Widget</a
+          >
+          <a class="dropdown-item" href="<%= user_widget_path %>"
+            >View Widget</a
+          >
+          <%= form_with url: logout_user_path, class: "form-inline" ,remote:
+          true do |f| %>
           <div class="modal-footer">
             <%= f.submit 'Logout', class: "dropdown-item" %>
           </div>
         </div>
       </div>
 
-      <% end %> 
-      <% else %>
+      <% end %> <% else %>
       <form class="form-inline">
         <button
           class="btn btn-primary my-2 my-sm-0"
@@ -63,7 +82,6 @@
           Login
         </button>
         <% end %>
-     
       </form>
     </nav>
     <%= yield %>
