@@ -60,7 +60,10 @@
             >Create Widget</a
           >
           <a class="dropdown-item" href="<%= user_widget_path %>"
-            >View Widget</a
+            >View Widgets</a
+          >
+          <a class="dropdown-item" href="<%= user_profile_path %>"
+            >View Profile</a
           >
           <%= form_with url: logout_user_path, class: "form-inline" ,remote:
           true do |f| %>
