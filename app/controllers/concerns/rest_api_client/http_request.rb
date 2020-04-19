@@ -80,5 +80,12 @@ module RestApiClient
   
       JSON.parse(resData)
     end
+
+    def widget_me_with_term_search(payload)
+      resData = RestClient::Request.execute(method: :get, url: "#{BASE_URL}/api/v1/users/me/widgets?client_id=#{ENV["client_id"]}&client_secret=#{ENV["client_secret"]}&term=#{payload}",
+        headers: {'content-type': 'application/json', Authorization:  "Bearer #{session[:token]}"} )  {|response, request, result| response }
+  
+      JSON.parse(resData)
+    end
   end
 end
