@@ -4,9 +4,10 @@
 <div class="container-width">
 
   <% if @widgets.length > 0 %>
-  <div class="row">
-    <% @widgets.each do |widget| %> <%= render "widget/widget_card", widget:
-    widget %> <% end %>
+   <div class="row">
+    <% @widgets.each do |widget| %> 
+    <%= render "widget/widget_card", widget: widget %>
+   <% end %>
   </div>
   <% else %>
   <p class="no-widget-lead">

@@ -16,6 +16,9 @@ Rails.application.routes.draw do
 
   get '/widgets/search', to: 'search#widget_search', as: 'widget_search'
 
+  get '/user/widgets/search', to: 'user#user_widget_search', as: 'user_widget_search'
+
   get 'users/profile', to: 'user#index', as: 'user_profile'
   get 'users/:id/profile', to: 'user#other_users_profile', as: 'get_user_profile'
+
 end
