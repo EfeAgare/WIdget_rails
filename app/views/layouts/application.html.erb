@@ -65,6 +65,9 @@
           <a class="dropdown-item" href="<%= user_profile_path %>"
             >View Profile</a
           >
+          <a class="dropdown-item" href="#" data-toggle="modal"
+          data-target="#checkEmailModal" >Check Email</a
+          >
           <%= form_with url: logout_user_path, class: "form-inline" ,remote:
           true do |f| %>
           <div class="modal-footer">
@@ -101,4 +104,5 @@
   <%= render "authentication/login_user_form" %>
   <%= render "authentication/reset_password" %>
   <%= render "authentication/change_password" %>
+  <%= render "authentication/check_email" %>
 </html>

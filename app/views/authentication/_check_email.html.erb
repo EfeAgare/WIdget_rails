@@ -1,0 +1,40 @@
+<div
+  class="modal fade"
+  id="checkEmailModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Check Email</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <%= form_with id: "check-email-form", url: check_email_path ,autocomplete: "off", remote: true do
+        |f| %>
+        <div class="valid-feedback form-message"></div>
+        <div class="form-group">
+          <%= f.email_field :email, class: "form-control check-email", placeholder:
+          "Email", autocomplete: "password"%>
+          <div class="invalid-feedback password"></div>
+        </div>
+        <div class="modal-footer">
+          <%= f.submit 'Check', class: "btn btn-primary", data: {
+          disable_with: "Checking..." }%>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
