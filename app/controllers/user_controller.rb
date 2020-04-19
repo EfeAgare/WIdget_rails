@@ -105,8 +105,8 @@ class UserController < ApplicationController
       user: {
         first_name: params[:first_name],
         last_name: params[:last_name],
-        date_of_birth: params[:date_of_birth],
-        image_url: params[:image_url]
+        image_url: params[:image_url],
+        date_of_birth: Date.parse(params[:date_of_birth])
       }
     }
   end
