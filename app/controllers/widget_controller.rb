@@ -60,21 +60,8 @@ class WidgetController < ApplicationController
     end
   end
 
-
-  def widget_search
-    if params[:term] && params[:identifier] == 'Id'
-         general_search
-    elsif params[:term] && params[:identifier] == 'Me'
-      @widgets = search(params[:term])
-    elsif params[:term] && params[:identifier] == 'All'
-      @widgets = general_search
-    end
-    @widgets
   end
-
-  def general_search
-    search(params[:term])['data']['widgets']
-  end
+  
   private
 
   def widget_payload
