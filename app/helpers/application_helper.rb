@@ -8,7 +8,7 @@ module ApplicationHelper
     end
   end
 
-  # def username
-  #   session[:username]
-  # end
+  def check_params
+    user_profile_path == request.path_info
+  end
 end

@@ -21,4 +21,7 @@ Rails.application.routes.draw do
   get 'users/profile', to: 'user#index', as: 'user_profile'
   get 'users/:id/profile', to: 'user#other_users_profile', as: 'get_user_profile'
 
+  post '/user/change', to: 'user#change_password', as: 'change_password'
+  post '/user/reset', to: 'user#reset_password', as: 'reset_password'
+
 end
