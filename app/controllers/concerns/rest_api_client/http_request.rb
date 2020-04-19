@@ -87,5 +87,19 @@ module RestApiClient
   
       JSON.parse(resData)
     end
+
+    def get_current_user_profile
+      resData = RestClient::Request.execute(method: :get, url: "#{BASE_URL}/api/v1/users/me",
+        headers: {'content-type': 'application/json', Authorization:  "Bearer #{session[:token]}"} )  {|response, request, result| response }
+  
+      JSON.parse(resData)
+    end
+
+    def get_other_users_profile(payload)
+      resData = RestClient::Request.execute(method: :get, url: "#{BASE_URL}/api/v1/users/#{payload}",
+        headers: {'content-type': 'application/json', Authorization:  "Bearer #{session[:token]}"} )  {|response, request, result| response }
+  
+      JSON.parse(resData)
+    end
   end
 end
