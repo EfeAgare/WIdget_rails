@@ -20,4 +20,8 @@ class ApplicationController < ActionController::Base
       return false
     end
   end
+
+  def render_404
+    render template: 'errors/error', status: :not_found
+  end
 end

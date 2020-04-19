@@ -8,7 +8,7 @@ class UserController < ApplicationController
     if @user['data'].present?
       @user = @user['data']['user']
     else
-      
+      render_404
     end
   end
 end
