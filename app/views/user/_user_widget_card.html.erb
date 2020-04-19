@@ -1,0 +1,25 @@
+<div class="col-sm-3">
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title title-name"><%= widget['name'] %></h5>
+      <p class="card-text">
+        <%= widget['description'] %>
+      </p>
+    </div>
+    <div class="card-text card-text-user">
+      <p class="card-text-name">
+        Created by: <a href="<%= get_user_profile_path(widget['user']['id']) %>" class="card-link"><%= widget['user']['name'] %></a>
+      </p>
+    </div>
+    
+    <div class="widget-actions">
+      <% if widget['owner'] == true %>
+      <a href="<%= edit_widget_path(widget['id']) %>" class="card-link">Edit</a>
+      <%= link_to 'Delete', delete_widget_path(widget['id']), class: "card-link",
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </div>
+   
+  </div>
+</div>

@@ -101,5 +101,19 @@ module RestApiClient
   
       JSON.parse(resData)
     end
+
+    def widget_user_id_search(id)
+      resData = RestClient::Request.execute(method: :get, url: "#{BASE_URL}/api/v1/users/#{id}/widgets?client_id=#{ENV["client_id"]}&client_secret=#{ENV["client_secret"]}",
+        headers: {'content-type': 'application/json', Authorization:  "Bearer #{session[:token]}"} )  {|response, request, result| response }
+  
+      JSON.parse(resData)
+    end
+
+    def widget_user_id_and_term_search(id, payload)
+      resData = RestClient::Request.execute(method: :get, url: "#{BASE_URL}/api/v1/users/#{id}/widgets?client_id=#{ENV["client_id"]}&client_secret=#{ENV["client_secret"]}&term=#{payload}",
+        headers: {'content-type': 'application/json', Authorization:  "Bearer #{session[:token]}"} )  {|response, request, result| response }
+  
+      JSON.parse(resData)
+    end
   end
 end
