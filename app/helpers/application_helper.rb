@@ -8,7 +8,9 @@ module ApplicationHelper
     end
   end
 
-  def check_params
-    return true if edit_profile_path  || user_profile_path == request.path_info
+  def user_id
+    session[:user_id]
   end
+
+
 end

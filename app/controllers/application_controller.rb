@@ -10,8 +10,12 @@ class ApplicationController < ActionController::Base
   private   
 
   def authorise_user(response)
-    session[:token] = response['data']['token']['access_token']
-    session[:refresh_token] = response['data']['token']['refresh_token']
+    if response['data']['token']
+      session[:token] = response['data']['token']['access_token']
+      session[:refresh_token] = response['data']['token']['refresh_token']
+    elsif response['data']['user']
+      session[:user_id] = response['data']['user']['id']
+    end
   end
 
   def current_user

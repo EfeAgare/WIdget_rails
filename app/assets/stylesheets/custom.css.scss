@@ -5,3 +5,33 @@
   margin-bottom: 10px;
   text-align: center;
 }
+@media (min-width: 576px) {
+  .jumbotron {
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+}
+
+.widget-card-row {
+  justify-content: center;
+}
+.user-widget-cards {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+.card {
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+.btn-secondary:hover {
+  color:unset;
+  background-color: unset;
+  border-color: unset;
+}
+
+.show > .btn-primary.dropdown-toggle {
+  background-color: #007bff;
+}

@@ -5,13 +5,20 @@
 
   <% if @widgets.length > 0 %>
    <div class="row">
+     <div class="user-widget-cards">
     <% @widgets.each do |widget| %> 
     <%= render "widget/widget_card", widget: widget %>
+    
    <% end %>
+   
   </div>
   <% else %>
   <p class="no-widget-lead">
-    No widgets created yet, it easy to create one
+    No widgets created yet, it easy to create one.
+  </p>
+   <p class="no-widget-lead">
+    Just click on the button in the top right.
   </p>
   <% end %>
+  </div>
 </div>

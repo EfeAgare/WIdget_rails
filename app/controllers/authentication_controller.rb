@@ -1,5 +1,7 @@
 class AuthenticationController < ApplicationController
 
+  before_action :current_user, except: [:register_user, :login_user]
+
   def register_user
     @user = Validations::RegisterUser.new(user_params)
  
@@ -11,6 +13,7 @@ class AuthenticationController < ApplicationController
         json_response(response)
       else
         authorise_user(response)
+
         redirect_to user_widget_path
       end
     end
@@ -27,6 +30,7 @@ class AuthenticationController < ApplicationController
           json_response(response)
         else
           authorise_user(response)
+          authorise_user(get_current_user_profile)
           redirect_to user_widget_path
         end
       end
@@ -36,6 +40,7 @@ class AuthenticationController < ApplicationController
     revoke_token
     session[:token] = nil
     session[:refresh_token] = nil
+    session[:user_id] = nil
     redirect_to root_path
   end
 
