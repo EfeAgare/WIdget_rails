@@ -60,8 +60,6 @@ class WidgetController < ApplicationController
     end
   end
 
-  end
-  
   private
 
   def widget_payload
