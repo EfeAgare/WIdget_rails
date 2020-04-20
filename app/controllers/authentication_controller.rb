@@ -1,6 +1,6 @@
 class AuthenticationController < ApplicationController
 
-  before_action :current_user, except: [:register_user, :login_user]
+  before_action :authorise, except: [:register_user, :login_user]
 
   def register_user
     @user = Validations::RegisterUser.new(user_params)
