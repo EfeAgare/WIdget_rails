@@ -1,4 +1,4 @@
-window.addEventListener('load', () => {
+window.addEventListener('turbolinks:load', () => {
   const element = document.querySelector('#login-user');
 
   element.addEventListener('keypress', () => {

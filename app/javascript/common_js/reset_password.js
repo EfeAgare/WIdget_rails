@@ -1,5 +1,5 @@
 
-window.addEventListener('load', () => {
+window.addEventListener('turbolinks:load', () => {
   const element = document.querySelector('#reset-password-form');
 
   element.addEventListener('keypress', () => {

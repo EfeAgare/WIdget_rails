@@ -1,5 +1,5 @@
 
-window.addEventListener('load', () => {
+window.addEventListener('turbolinks:load', () => {
   const element = document.querySelector('#check-email-form');
 
   element.addEventListener('keypress', () => {
