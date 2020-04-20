@@ -203,5 +203,36 @@ module Helpers
         }).
       to_return(status: 200, body: response_file("all_widget"), headers: {})
     end
+
+    def widget_search
+      
+      stub_request(:get, "https://showoff-rails-react-production.herokuapp.com/api/v1/widgets/visible?client_id=#{ENV["client_id"]}&client_secret=#{ENV["client_secret"]}&term=").
+      with(
+        headers: {
+       'Authorization'=>'Bearer 9a1a433fec9ee269526c00216c78bfb92978',
+       'Content-Type'=>'application/json',
+        }).
+      to_return(status: 200, body: response_file("all_widget"), headers: {})
+    end
+
+    def me_widget_search
+      stub_request(:get, "https://showoff-rails-react-production.herokuapp.com/api/v1/users/me/widgets?client_id=#{ENV["client_id"]}&client_secret=#{ENV["client_secret"]}").
+      with(
+        headers: {
+       'Authorization'=>'Bearer 9a1a433fec9ee269526c00216c78bfb92978',
+       'Content-Type'=>'application/json',
+        }).
+      to_return(status: 200, body: response_file("all_widget"), headers: {})
+    end
+
+    def me_with_term_widget_search
+      stub_request(:get, "https://showoff-rails-react-production.herokuapp.com/api/v1/users/me/widgets?client_id=#{ENV["client_id"]}&client_secret=#{ENV["client_secret"]}&term=ok").
+      with(
+        headers: {
+       'Authorization'=>'Bearer 9a1a433fec9ee269526c00216c78bfb92978',
+       'Content-Type'=>'application/json',
+        }).
+      to_return(status: 200, body: response_file("all_widget"), headers: {})
+    end
   end
 end
