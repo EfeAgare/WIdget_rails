@@ -8,9 +8,15 @@
   </div>
   <% else %>
   <div class="create-widget">
+    <% if user_id == params[:id].to_id %>
+    <div class="create-widget-title">
+      <h3>No widget created yet </h3>
+    </div>
+    <% else %>
     <div class="create-widget-title">
       <h3>Sorry the widget was not found</h3>
     </div>
+    <% end %>
   </div>
   <% end %>
 </div>

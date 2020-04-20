@@ -10,11 +10,16 @@ class ApplicationController < ActionController::Base
   private   
 
   def authorise_user(response)
-    if response['data']['token']
-      session[:token] = response['data']['token']['access_token']
-      session[:refresh_token] = response['data']['token']['refresh_token']
-    elsif response['data']['user']
-      session[:user_id] = response['data']['user']['id']
+    if response['data'].present?
+      if response['data']['token']
+        session[:token] = response['data']['token']['access_token']
+        session[:refresh_token] = response['data']['token']['refresh_token']
+      elsif response['data']['user']
+        session[:user_id] = response['data']['user']['id']
+      end
+    else
+      flash[:notice] = 'There was an error logging in. Please try again.'
+      redirect_to root_path && return
     end
   end
 

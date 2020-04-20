@@ -24,5 +24,14 @@ module RestApiClient
           password: params[:password],
         }
     end
+
+    def refresh_token_payload
+      {
+        grant_type: "refresh_token",
+        refresh_token: session[:refresh_token],
+        client_id: ENV["client_id"],
+        client_secret: ENV["client_secret"]
+      }
+  end
  end
 end
