@@ -13,7 +13,18 @@ module RestApiClient
       resData = RestClient::Request.execute(method: :get, url: "#{BASE_URL}/api/v1/widgets",
       headers: {'content-type': 'application/json', Authorization:  "Bearer #{session[:token]}"} )  {|response, request, result| response }
 
-     JSON.parse(resData)
+      json = JSON.parse(resData)
+
+      if json['code'] == 10
+        response = refresh_token
+        binding.pry
+        authorise_user(response)
+        resData = RestClient::Request.execute(method: :get, url: "#{BASE_URL}/api/v1/widgets",
+          headers: {'content-type': 'application/json', Authorization:  "Bearer #{session[:token]}"} )  {|response, request, result| response }
+        JSON.parse(resData)
+      else
+        json
+      end
     end
 
     def authenticate_user(payload)
@@ -36,35 +47,71 @@ module RestApiClient
       resData = RestClient::Request.execute(method: :post, url: "#{BASE_URL}/api/v1/widgets",payload:{ 'widget': payload},
       headers: {'content-type': 'application/json', Authorization: "Bearer #{session[:token]}"} )  {|response, request, result| response }
 
-     JSON.parse(resData)
+      json = JSON.parse(resData)
+      if json['code'] == 10
+        response = refresh_token
+        authorise_user(response)
+        resData = RestClient::Request.execute(method: :post, url: "#{BASE_URL}/api/v1/widgets",payload:{ 'widget': payload},
+          headers: {'content-type': 'application/json', Authorization: "Bearer #{session[:token]}"} )  {|response, request, result| response }
+        JSON.parse(resData)
+      else
+        json
+      end
     end
 
     def get_widget(id)
       resData = RestClient::Request.execute(method: :get, url: "#{BASE_URL}/api/v1/widgets/#{id}",
         headers: {'content-type': 'application/json', Authorization: "Bearer #{session[:token]}"} )  {|response, request, result| response }
   
-       JSON.parse(resData)
+      json = JSON.parse(resData)
+      if json['code'] == 10
+        response = refresh_token
+        authorise_user(response)
+        resData = RestClient::Request.execute(method: :get, url: "#{BASE_URL}/api/v1/widgets/#{id}",
+          headers: {'content-type': 'application/json', Authorization: "Bearer #{session[:token]}"} )  {|response, request, result| response }
+        JSON.parse(resData)
+      else
+        json
+      end
     end
 
     def update_widget(id, payload)
       resData = RestClient::Request.execute(method: :put, url: "#{BASE_URL}/api/v1/widgets/#{id}", payload:{ 'widget': payload },
         headers: {'content-type': 'application/json', Authorization: "Bearer #{session[:token]}"} )  {|response, request, result| response }
 
-      JSON.parse(resData)
+      json = JSON.parse(resData)
+      if json['code'] == 10
+        response = refresh_token
+        authorise_user(response)
+        resData = RestClient::Request.execute(method: :put, url: "#{BASE_URL}/api/v1/widgets/#{id}", payload:{ 'widget': payload },
+          headers: {'content-type': 'application/json', Authorization: "Bearer #{session[:token]}"} )  {|response, request, result| response }
+        JSON.parse(resData)
+      else
+        json
+      end
     end
 
     def delete_user_widget(id)
       resData = RestClient::Request.execute(method: :delete, url: "#{BASE_URL}/api/v1/widgets/#{id}",
         headers: {'content-type': 'application/json', Authorization: "Bearer #{session[:token]}"} )  {|response, request, result| response }
   
-       JSON.parse(resData)
+      json = JSON.parse(resData)
+      if json['code'] == 10
+        response = refresh_token
+        authorise_user(response)
+        resData = RestClient::Request.execute(method: :delete, url: "#{BASE_URL}/api/v1/widgets/#{id}",
+          headers: {'content-type': 'application/json', Authorization: "Bearer #{session[:token]}"} )  {|response, request, result| response }
+        JSON.parse(resData)
+      else
+        json
+      end
     end
 
     def get_all_widget
       resData = RestClient::Request.execute(method: :get, url: "#{BASE_URL}/api/v1/widgets/visible?client_id=#{ENV["client_id"]}&client_secret=#{ENV["client_secret"]}",
         headers: {'content-type': 'application/json', Authorization:  "Bearer #{session[:token]}"} )  {|response, request, result| response }
   
-       JSON.parse(resData)
+      JSON.parse(resData)
     end
 
     def search(payload)
@@ -78,28 +125,64 @@ module RestApiClient
       resData = RestClient::Request.execute(method: :get, url: "#{BASE_URL}/api/v1/users/me/widgets?client_id=#{ENV["client_id"]}&client_secret=#{ENV["client_secret"]}",
         headers: {'content-type': 'application/json', Authorization:  "Bearer #{session[:token]}"} )  {|response, request, result| response }
   
-      JSON.parse(resData)
+      json = JSON.parse(resData)
+      if json['code'] == 3
+        response = refresh_token
+        authorise_user(response)
+        resData = RestClient::Request.execute(method: :get, url: "#{BASE_URL}/api/v1/users/me/widgets?client_id=#{ENV["client_id"]}&client_secret=#{ENV["client_secret"]}",
+          headers: {'content-type': 'application/json', Authorization:  "Bearer #{session[:token]}"} )  {|response, request, result| response }
+        JSON.parse(resData)
+      else
+        json
+      end
     end
 
     def widget_me_with_term_search(payload)
       resData = RestClient::Request.execute(method: :get, url: "#{BASE_URL}/api/v1/users/me/widgets?client_id=#{ENV["client_id"]}&client_secret=#{ENV["client_secret"]}&term=#{payload}",
         headers: {'content-type': 'application/json', Authorization:  "Bearer #{session[:token]}"} )  {|response, request, result| response }
-  
-      JSON.parse(resData)
+
+      json = JSON.parse(resData)
+      if json['code'] == 3
+        response = refresh_token
+        authorise_user(response)
+        resData = RestClient::Request.execute(method: :get, url: "#{BASE_URL}/api/v1/users/me/widgets?client_id=#{ENV["client_id"]}&client_secret=#{ENV["client_secret"]}&term=#{payload}",
+          headers: {'content-type': 'application/json', Authorization:  "Bearer #{session[:token]}"} )  {|response, request, result| response }
+        JSON.parse(resData)
+      else
+        json
+      end
     end
 
     def get_current_user_profile
       resData = RestClient::Request.execute(method: :get, url: "#{BASE_URL}/api/v1/users/me",
         headers: {'content-type': 'application/json', Authorization:  "Bearer #{session[:token]}"} )  {|response, request, result| response }
   
-      JSON.parse(resData)
+      json = JSON.parse(resData)
+      if json['code'] == 10
+        response = refresh_token
+        authorise_user(response)
+        resData = RestClient::Request.execute(method: :get, url: "#{BASE_URL}/api/v1/users/me",
+          headers: {'content-type': 'application/json', Authorization:  "Bearer #{session[:token]}"} )  {|response, request, result| response }
+        JSON.parse(resData)
+      else
+        json
+      end
     end
 
     def get_other_users_profile(payload)
       resData = RestClient::Request.execute(method: :get, url: "#{BASE_URL}/api/v1/users/#{payload}",
         headers: {'content-type': 'application/json', Authorization:  "Bearer #{session[:token]}"} )  {|response, request, result| response }
-  
-      JSON.parse(resData)
+
+      json = JSON.parse(resData)
+      if json['code'] == 10
+        response = refresh_token
+        authorise_user(response)
+        resData = RestClient::Request.execute(method: :get, url: "#{BASE_URL}/api/v1/users/#{payload}",
+          headers: {'content-type': 'application/json', Authorization:  "Bearer #{session[:token]}"} )  {|response, request, result| response }
+        JSON.parse(resData)
+      else
+        json
+      end
     end
 
     def widget_user_id_search(id)
@@ -120,15 +203,33 @@ module RestApiClient
     def change_user_password(payload)
       resData = RestClient::Request.execute(method: :post, url: "#{BASE_URL}/api/v1/users/me/password", payload: payload,
         headers: {'content-type': 'application/json', Authorization:  "Bearer #{session[:token]}"} )  {|response, request, result| response }
-  
-      JSON.parse(resData)
+
+      json = JSON.parse(resData)
+      if json['code'] == 10
+        response = refresh_token
+        authorise_user(response)
+        resData = RestClient::Request.execute(method: :post, url: "#{BASE_URL}/api/v1/users/me/password", payload: payload,
+          headers: {'content-type': 'application/json', Authorization:  "Bearer #{session[:token]}"} )  {|response, request, result| response }
+        JSON.parse(resData)
+      else
+        json
+      end
     end
 
     def reset_user_password(payload)
       resData = RestClient::Request.execute(method: :post, url: "#{BASE_URL}/api/v1/users/reset_password", payload: payload,
         headers: {'content-type': 'application/json', Authorization:  "Bearer #{session[:token]}"} )  {|response, request, result| response }
   
-      JSON.parse(resData)
+      json = JSON.parse(resData)
+      if json['code'] == 10
+        response = refresh_token
+        authorise_user(response)
+        resData = RestClient::Request.execute(method: :post, url: "#{BASE_URL}/api/v1/users/reset_password", payload: payload,
+          headers: {'content-type': 'application/json', Authorization:  "Bearer #{session[:token]}"} )  {|response, request, result| response }
+        JSON.parse(resData)
+      else
+        json
+      end
     end
 
 
@@ -136,12 +237,28 @@ module RestApiClient
       resData = RestClient::Request.execute(method: :put, url: "#{BASE_URL}/api/v1/users/me", payload: payload,
         headers: {'content-type': 'application/json', Authorization:  "Bearer #{session[:token]}"} )  {|response, request, result| response }
   
-      JSON.parse(resData)
+      json = JSON.parse(resData)
+      if json['code'] == 10
+        response = refresh_token
+        authorise_user(response)
+        resData = RestClient::Request.execute(method: :put, url: "#{BASE_URL}/api/v1/users/me", payload: payload,
+          headers: {'content-type': 'application/json', Authorization:  "Bearer #{session[:token]}"} )  {|response, request, result| response }
+        JSON.parse(resData)
+      else
+        json
+      end
     end
 
 
     def check_user_email(payload)
       resData = RestClient::Request.execute(method: :get, url: "#{BASE_URL}/api/v1/users/email?email=#{payload}&client_id=#{ENV["client_id"]}&client_secret=#{ENV["client_secret"]}",
+        headers: {'content-type': 'application/json', Authorization:  "Bearer #{session[:token]}"} )  {|response, request, result| response }
+  
+      JSON.parse(resData)
+    end
+
+    def refresh_token
+      resData = RestClient::Request.execute(method: :post, url: "#{BASE_URL}/oauth/token", payload: refresh_token_payload, 
         headers: {'content-type': 'application/json', Authorization:  "Bearer #{session[:token]}"} )  {|response, request, result| response }
   
       JSON.parse(resData)
