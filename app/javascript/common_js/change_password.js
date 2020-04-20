@@ -1,5 +1,5 @@
 
-window.addEventListener('load', () => {
+window.addEventListener('turbolinks:load', () => {
   const element = document.querySelector('#change-password-form');
 
   element.addEventListener('keypress', () => {
