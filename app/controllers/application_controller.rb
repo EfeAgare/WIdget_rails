@@ -38,6 +38,7 @@ class ApplicationController < ActionController::Base
   def authorise
     if session[:token] == nil
       redirect_to root_path
+
       flash[:notice] = 'You need to login or signup to access the page'
     end
   end
