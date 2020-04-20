@@ -46,7 +46,7 @@ module RestApiClient
     def create_widget(payload)
       resData = RestClient::Request.execute(method: :post, url: "#{BASE_URL}/api/v1/widgets",payload:{ 'widget': payload},
       headers: {'content-type': 'application/json', Authorization: "Bearer #{session[:token]}"} )  {|response, request, result| response }
-
+      
       json = JSON.parse(resData)
       if json['code'] == 10
         response = refresh_token

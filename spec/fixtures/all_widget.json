@@ -1,0 +1,184 @@
+{
+  "code": 0,
+  "message": "Success",
+  "data": {
+    "widgets": [
+      {
+        "id": 2482,
+        "name": "This is good oh",
+        "description": "It this really working now just to confirm",
+        "kind": "hidden",
+        "user": {
+          "id": 4134,
+          "name": "Pogba Ronaldo",
+          "images": {
+            "small_url": "https://showoff-rails-react-api-production.s3.amazonaws.com/users/images/000/004/134/small/961-200.png?1587310406",
+            "medium_url": "https://showoff-rails-react-api-production.s3.amazonaws.com/users/images/000/004/134/medium/961-200.png?1587310406",
+            "large_url": "https://showoff-rails-react-api-production.s3.amazonaws.com/users/images/000/004/134/large/961-200.png?1587310406",
+            "original_url": "https://showoff-rails-react-api-production.s3.amazonaws.com/users/images/000/004/134/original/961-200.png?1587310406"
+          },
+          "first_name": "Pogba",
+          "last_name": "Ronaldo",
+          "date_of_birth": 2020,
+          "email": "efe@showoff.ie",
+          "active": true
+        },
+        "owner": true
+      },
+      {
+        "id": 2420,
+        "name": "An Updated Visible Widget fine",
+        "description": "Widget 1 this is working for me okay is okay",
+        "kind": "visible",
+        "user": {
+          "id": 4134,
+          "name": "Pogba Ronaldo",
+          "images": {
+            "small_url": "https://showoff-rails-react-api-production.s3.amazonaws.com/users/images/000/004/134/small/961-200.png?1587310406",
+            "medium_url": "https://showoff-rails-react-api-production.s3.amazonaws.com/users/images/000/004/134/medium/961-200.png?1587310406",
+            "large_url": "https://showoff-rails-react-api-production.s3.amazonaws.com/users/images/000/004/134/large/961-200.png?1587310406",
+            "original_url": "https://showoff-rails-react-api-production.s3.amazonaws.com/users/images/000/004/134/original/961-200.png?1587310406"
+          },
+          "first_name": "Pogba",
+          "last_name": "Ronaldo",
+          "date_of_birth": 2020,
+          "email": "efe@showoff.ie",
+          "active": true
+        },
+        "owner": true
+      },
+      {
+        "id": 2417,
+        "name": "Alright the last one",
+        "description": "Widget working",
+        "kind": "visible",
+        "user": {
+          "id": 4134,
+          "name": "Pogba Ronaldo",
+          "images": {
+            "small_url": "https://showoff-rails-react-api-production.s3.amazonaws.com/users/images/000/004/134/small/961-200.png?1587310406",
+            "medium_url": "https://showoff-rails-react-api-production.s3.amazonaws.com/users/images/000/004/134/medium/961-200.png?1587310406",
+            "large_url": "https://showoff-rails-react-api-production.s3.amazonaws.com/users/images/000/004/134/large/961-200.png?1587310406",
+            "original_url": "https://showoff-rails-react-api-production.s3.amazonaws.com/users/images/000/004/134/original/961-200.png?1587310406"
+          },
+          "first_name": "Pogba",
+          "last_name": "Ronaldo",
+          "date_of_birth": 2020,
+          "email": "efe@showoff.ie",
+          "active": true
+        },
+        "owner": true
+      },
+      {
+        "id": 2416,
+        "name": "Coding for fun",
+        "description": "Widget working",
+        "kind": "visible",
+        "user": {
+          "id": 4134,
+          "name": "Pogba Ronaldo",
+          "images": {
+            "small_url": "https://showoff-rails-react-api-production.s3.amazonaws.com/users/images/000/004/134/small/961-200.png?1587310406",
+            "medium_url": "https://showoff-rails-react-api-production.s3.amazonaws.com/users/images/000/004/134/medium/961-200.png?1587310406",
+            "large_url": "https://showoff-rails-react-api-production.s3.amazonaws.com/users/images/000/004/134/large/961-200.png?1587310406",
+            "original_url": "https://showoff-rails-react-api-production.s3.amazonaws.com/users/images/000/004/134/original/961-200.png?1587310406"
+          },
+          "first_name": "Pogba",
+          "last_name": "Ronaldo",
+          "date_of_birth": 2020,
+          "email": "efe@showoff.ie",
+          "active": true
+        },
+        "owner": true
+      },
+      {
+        "id": 2415,
+        "name": "I love this hmmmm",
+        "description": "Widget working",
+        "kind": "visible",
+        "user": {
+          "id": 4134,
+          "name": "Pogba Ronaldo",
+          "images": {
+            "small_url": "https://showoff-rails-react-api-production.s3.amazonaws.com/users/images/000/004/134/small/961-200.png?1587310406",
+            "medium_url": "https://showoff-rails-react-api-production.s3.amazonaws.com/users/images/000/004/134/medium/961-200.png?1587310406",
+            "large_url": "https://showoff-rails-react-api-production.s3.amazonaws.com/users/images/000/004/134/large/961-200.png?1587310406",
+            "original_url": "https://showoff-rails-react-api-production.s3.amazonaws.com/users/images/000/004/134/original/961-200.png?1587310406"
+          },
+          "first_name": "Pogba",
+          "last_name": "Ronaldo",
+          "date_of_birth": 2020,
+          "email": "efe@showoff.ie",
+          "active": true
+        },
+        "owner": true
+      },
+      {
+        "id": 2414,
+        "name": "Whao it working fun working again oh",
+        "description": "Widget working",
+        "kind": "visible",
+        "user": {
+          "id": 4134,
+          "name": "Pogba Ronaldo",
+          "images": {
+            "small_url": "https://showoff-rails-react-api-production.s3.amazonaws.com/users/images/000/004/134/small/961-200.png?1587310406",
+            "medium_url": "https://showoff-rails-react-api-production.s3.amazonaws.com/users/images/000/004/134/medium/961-200.png?1587310406",
+            "large_url": "https://showoff-rails-react-api-production.s3.amazonaws.com/users/images/000/004/134/large/961-200.png?1587310406",
+            "original_url": "https://showoff-rails-react-api-production.s3.amazonaws.com/users/images/000/004/134/original/961-200.png?1587310406"
+          },
+          "first_name": "Pogba",
+          "last_name": "Ronaldo",
+          "date_of_birth": 2020,
+          "email": "efe@showoff.ie",
+          "active": true
+        },
+        "owner": true
+      },
+      {
+        "id": 2413,
+        "name": "fun working again oh",
+        "description": "Widget working",
+        "kind": "visible",
+        "user": {
+          "id": 4134,
+          "name": "Pogba Ronaldo",
+          "images": {
+            "small_url": "https://showoff-rails-react-api-production.s3.amazonaws.com/users/images/000/004/134/small/961-200.png?1587310406",
+            "medium_url": "https://showoff-rails-react-api-production.s3.amazonaws.com/users/images/000/004/134/medium/961-200.png?1587310406",
+            "large_url": "https://showoff-rails-react-api-production.s3.amazonaws.com/users/images/000/004/134/large/961-200.png?1587310406",
+            "original_url": "https://showoff-rails-react-api-production.s3.amazonaws.com/users/images/000/004/134/original/961-200.png?1587310406"
+          },
+          "first_name": "Pogba",
+          "last_name": "Ronaldo",
+          "date_of_birth": 2020,
+          "email": "efe@showoff.ie",
+          "active": true
+        },
+        "owner": true
+      },
+      {
+        "id": 2412,
+        "name": "A working again oh",
+        "description": "Widget working",
+        "kind": "visible",
+        "user": {
+          "id": 4134,
+          "name": "Pogba Ronaldo",
+          "images": {
+            "small_url": "https://showoff-rails-react-api-production.s3.amazonaws.com/users/images/000/004/134/small/961-200.png?1587310406",
+            "medium_url": "https://showoff-rails-react-api-production.s3.amazonaws.com/users/images/000/004/134/medium/961-200.png?1587310406",
+            "large_url": "https://showoff-rails-react-api-production.s3.amazonaws.com/users/images/000/004/134/large/961-200.png?1587310406",
+            "original_url": "https://showoff-rails-react-api-production.s3.amazonaws.com/users/images/000/004/134/original/961-200.png?1587310406"
+          },
+          "first_name": "Pogba",
+          "last_name": "Ronaldo",
+          "date_of_birth": 2020,
+          "email": "efe@showoff.ie",
+          "active": true
+        },
+        "owner": true
+      }
+    ]
+  }
+}

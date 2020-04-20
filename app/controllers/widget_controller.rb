@@ -3,7 +3,6 @@ class WidgetController < ApplicationController
   
   def index
     @widgets = get_all_widget
-
     if @widgets['code'] == 10
       return @widgets = ''
     else

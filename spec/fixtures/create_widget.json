@@ -1,0 +1,28 @@
+{
+  "code": 0,
+  "message": "Success",
+  "data": {
+    "widget": {
+      "id": 2502,
+      "name": "A Hidden Widget",
+      "description": "Widget 1",
+      "kind": "hidden",
+      "user": {
+        "id": 4134,
+        "name": "Pogba Ronaldo",
+        "images": {
+          "small_url": "https://showoff-rails-react-api-production.s3.amazonaws.com/users/images/000/004/134/small/961-200.png?1587310406",
+          "medium_url": "https://showoff-rails-react-api-production.s3.amazonaws.com/users/images/000/004/134/medium/961-200.png?1587310406",
+          "large_url": "https://showoff-rails-react-api-production.s3.amazonaws.com/users/images/000/004/134/large/961-200.png?1587310406",
+          "original_url": "https://showoff-rails-react-api-production.s3.amazonaws.com/users/images/000/004/134/original/961-200.png?1587310406"
+        },
+        "first_name": "Pogba",
+        "last_name": "Ronaldo",
+        "date_of_birth": 2020,
+        "email": "efe@showoff.ie",
+        "active": true
+      },
+      "owner": true
+    }
+  }
+}
