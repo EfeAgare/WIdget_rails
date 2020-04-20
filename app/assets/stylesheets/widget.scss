@@ -103,7 +103,7 @@
   outline: none;
 }
 
-.navbar-dropdown{
+.navbar-dropdown {
   display: flex;
   margin: 0 auto;
   flex-wrap: wrap;
@@ -111,4 +111,13 @@
   border-top: 1px solid #dee2e6;
   border-bottom-right-radius: calc(0.3rem - 1px);
   border-bottom-left-radius: calc(0.3rem - 2px);
+}
+
+@media (min-width: 576px) {
+  .jumbotron.not-logged-in {
+    padding: 4rem 2rem;
+    text-align: center;
+    color: white;
+    background: #000000ab;
+  }
 }

@@ -174,8 +174,6 @@ module Helpers
        'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
        'Content-Length'=>'219',
        'Content-Type'=>'application/x-www-form-urlencoded',
-       'Host'=>'showoff-rails-react-production.herokuapp.com',
-       'User-Agent'=>'rest-client/2.1.0 (darwin18.7.0 x86_64) ruby/2.6.2p47'
         }).
       to_return(status: 200, body: response_file("change_password"), headers: {})
       

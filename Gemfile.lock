@@ -232,7 +232,6 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.7)
-    vcr (5.1.0)
     web-console (4.0.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -275,7 +274,6 @@ DEPENDENCIES
   toastr-rails
   turbolinks (~> 5)
   tzinfo-data
-  vcr
   web-console (>= 3.3.0)
   webmock
   webpacker (~> 4.0)

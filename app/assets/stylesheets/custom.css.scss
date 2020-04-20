@@ -9,6 +9,7 @@
   .jumbotron {
     padding: 4rem 2rem;
     text-align: center;
+    border-radius: unset;
   }
 }
 
@@ -38,4 +39,9 @@
 
 .alert-info {
   text-align: center;
+}
+
+.created-by {
+  font-size: 12px;
+    color: black;
 }
