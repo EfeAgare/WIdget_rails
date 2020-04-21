@@ -65,6 +65,7 @@ class UserController < ApplicationController
   end
 
   def edit_user
+    binding.pry
     response = update_user(edit_user_params)
     flash[:notice] = "Profile updated successfully"
     redirect_to user_profile_path
@@ -106,7 +107,7 @@ class UserController < ApplicationController
         first_name: params[:first_name],
         last_name: params[:last_name],
         image_url: params[:image_url],
-        date_of_birth: Date.parse(params[:date_of_birth])
+        date_of_birth: params[:date_of_birth]
       }
     }
   end

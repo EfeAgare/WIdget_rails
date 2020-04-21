@@ -13,7 +13,7 @@ class AuthenticationController < ApplicationController
         json_response(response)
       else
         authorise_user(response)
-
+        flash[:notice] = "Welcome #{response['data']['user']['name']}"
         redirect_to user_widget_path
       end
     end
@@ -31,6 +31,7 @@ class AuthenticationController < ApplicationController
         else
           authorise_user(response)
           authorise_user(get_current_user_profile)
+          flash[:notice] = "Login successfully"
           redirect_to user_widget_path
         end
       end
@@ -41,6 +42,7 @@ class AuthenticationController < ApplicationController
     session[:token] = nil
     session[:refresh_token] = nil
     session[:user_id] = nil
+    flash[:notice] = "Logged out successfully"
     redirect_to root_path
   end
 
@@ -61,7 +63,7 @@ class AuthenticationController < ApplicationController
 
   def user_params 
     {
-        first_name: params[:last_name],
+        first_name: params[:first_name],
         last_name: params[:last_name],
         email: params[:email],
         password: params[:password]

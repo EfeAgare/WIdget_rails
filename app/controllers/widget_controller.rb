@@ -23,6 +23,7 @@ class WidgetController < ApplicationController
       if response['message'] != 'Success'
         json_response(response)
       else
+        flash[:notice] = "Widget created successfully"
         redirect_to user_widget_path
       end
     end
@@ -41,6 +42,7 @@ class WidgetController < ApplicationController
       if response['message'] != 'Success'
         json_response(response)
       else
+        flash[:notice] = "Widget updated successfully"
         redirect_to user_widget_path
       end
     end
@@ -48,6 +50,7 @@ class WidgetController < ApplicationController
 
   def delete
     delete_user_widget(params[:id])
+    flash[:notice] = "Widget deleted successfully"
     redirect_to user_widget_path
   end
 
