@@ -28,4 +28,7 @@ Rails.application.routes.draw do
   get '/user/edit', to: 'user#edit', as: 'edit_profile'
   post '/user/profile/edit', to: 'user#edit_user', as: 'edit_user'
 
+  get "not_found" => "authentication#no_access", as: "not_found"
+
+  match "/(*url)", to: "authentication#no_access", via: :all
 end

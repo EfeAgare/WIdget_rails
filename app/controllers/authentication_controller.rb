@@ -59,6 +59,10 @@ class AuthenticationController < ApplicationController
     end
   end
 
+  def no_access
+    render_404
+  end
+
   private
 
   def user_params 
